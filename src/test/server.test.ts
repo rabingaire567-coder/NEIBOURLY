@@ -1,14 +1,27 @@
-import { readdirSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync } from 'node:fs';
 import type { Server } from 'node:http';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { createNeibourlyServer } from '../../server/index.js';
+
+/**
+ * The suite builds its own fixture directory instead of reading `dist/`, so it
+ * does not depend on build order and never fails on a clean checkout.
+ */
+function makeFixture(): string {
+  const dir = mkdtempSync(join(tmpdir(), 'neibourly-test-'));
+  mkdirSync(join(dir, 'assets'));
+  writeFileSync(join(dir, 'index.html'), '<!doctype html><html><body><div id="root"></div></body></html>');
+  writeFileSync(join(dir, 'assets', 'index-test123.js'), 'export const ok = 1;\n');
+  return dir;
+}
 
 let server: Server;
 let base: string;
 
 beforeAll(async () => {
-  server = createNeibourlyServer({ apiKey: '' });
+  server = createNeibourlyServer({ apiKey: '', staticDir: makeFixture() });
   await new Promise<void>((done) => server.listen(0, () => done()));
   const address = server.address();
   base = `http://127.0.0.1:${typeof address === 'object' && address ? address.port : 0}`;
@@ -35,14 +48,12 @@ describe('optional host', () => {
   });
 
   it('serves a built asset with the right content type', async () => {
-    const file = readdirSync(join(process.cwd(), 'dist', 'assets')).find((f) => f.endsWith('.js'));
-    expect(file).toBeDefined();
-    const r = await fetch(`${base}/assets/${file}`);
+    const r = await fetch(`${base}/assets/index-test123.js`);
     expect(r.status).toBe(200);
     expect(r.headers.get('content-type')).toContain('javascript');
   });
 
-  it('refuses to serve files outside dist', async () => {
+  it('refuses to serve files outside the static directory', async () => {
     const r = await fetch(`${base}/../package.json`);
     expect(await r.text()).not.toContain('devDependencies');
   });

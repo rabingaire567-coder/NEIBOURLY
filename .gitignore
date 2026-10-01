@@ -1,0 +1,22 @@
+# Dependencies and build output
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Local environment. .env.example is committed, .env.local never is.
+.env
+.env.local
+.env.*.local
+
+# Editor and OS noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Test output
+coverage/
+
+# Packaged release
+*.zip

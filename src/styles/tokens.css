@@ -1,0 +1,171 @@
+/* ==========================================================================
+   NEIBOURLY design tokens
+   Palette: deep forest green (trust, civic), warm terracotta (Nepali earth,
+   warmth of mutual help), paper-cream surfaces, ink text.
+   ========================================================================== */
+
+:root {
+  /* Brand */
+  --pine-50: #eef5f1;
+  --pine-100: #d7e7dd;
+  --pine-200: #b0cfbe;
+  --pine-300: #7daf97;
+  --pine-400: #4f8f74;
+  --pine-500: #2f7358;
+  --pine-600: #1f5b45;
+  --pine-700: #174636;
+  --pine-800: #12362a;
+  --pine-900: #0d2720;
+  --pine-950: #071712;
+
+  --clay-50: #fbf2ed;
+  --clay-100: #f5e2d6;
+  --clay-200: #e9c2ab;
+  --clay-300: #d99c79;
+  --clay-400: #c97a52;
+  --clay-500: #b9603a;
+  --clay-600: #9c4a2c;
+
+  --gold-300: #f0cf8a;
+  --gold-500: #d9a441;
+
+  /* Neutrals (paper + ink) */
+  --paper: #fbf9f5;
+  --paper-2: #f4f1ea;
+  --paper-3: #ebe6dc;
+  --ink-900: #171c19;
+  --ink-800: #232a26;
+  --ink-700: #3a433d;
+  --ink-600: #55605a;
+  --ink-500: #737e77;
+  --ink-400: #9aa39d;
+  --ink-300: #c2c9c4;
+  --ink-200: #dde2de;
+  --ink-100: #eceeec;
+
+  /* Semantic */
+  --ok: #1f7a4d;
+  --ok-bg: #e6f4ec;
+  --warn: #a86a12;
+  --warn-bg: #fbf0dc;
+  --danger: #b3261e;
+  --danger-bg: #fbe9e7;
+  --info: #1f5b8a;
+  --info-bg: #e6eff6;
+
+  /* Typography */
+  --font-sans: 'Inter var', 'Inter', 'Segoe UI', system-ui, -apple-system, 'Noto Sans',
+    'Noto Sans Devanagari', sans-serif;
+  --font-display: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-mono: ui-monospace, 'Cascadia Mono', 'SF Mono', Menlo, monospace;
+
+  --step--1: clamp(0.78rem, 0.76rem + 0.1vw, 0.83rem);
+  --step-0: clamp(0.92rem, 0.9rem + 0.12vw, 0.98rem);
+  --step-1: clamp(1.06rem, 1rem + 0.3vw, 1.2rem);
+  --step-2: clamp(1.25rem, 1.14rem + 0.5vw, 1.5rem);
+  --step-3: clamp(1.5rem, 1.3rem + 0.9vw, 2rem);
+  --step-4: clamp(1.85rem, 1.5rem + 1.6vw, 2.9rem);
+  --step-5: clamp(2.2rem, 1.6rem + 2.8vw, 4.2rem);
+
+  /* Spacing scale */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.25rem;
+  --sp-6: 1.5rem;
+  --sp-8: 2rem;
+  --sp-10: 2.5rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-20: 5rem;
+
+  /* Radii */
+  --r-xs: 4px;
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+  --r-2xl: 28px;
+  --r-full: 999px;
+
+  /* Elevation */
+  --sh-xs: 0 1px 2px rgb(23 28 25 / 0.06);
+  --sh-sm: 0 1px 3px rgb(23 28 25 / 0.08), 0 1px 2px rgb(23 28 25 / 0.04);
+  --sh-md: 0 4px 12px -2px rgb(23 28 25 / 0.1), 0 2px 5px -3px rgb(23 28 25 / 0.06);
+  --sh-lg: 0 12px 28px -6px rgb(23 28 25 / 0.14), 0 4px 10px -4px rgb(23 28 25 / 0.07);
+  --sh-xl: 0 28px 60px -14px rgb(23 28 25 / 0.22), 0 8px 20px -10px rgb(23 28 25 / 0.1);
+  --sh-ring: 0 0 0 3px var(--ring);
+
+  /* Motion */
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-1: 120ms;
+  --dur-2: 220ms;
+  --dur-3: 420ms;
+
+  /* Layout */
+  --wrap: 1200px;
+  --wrap-narrow: 760px;
+  --nav-h: 60px;
+  --tabbar-h: 60px;
+
+  color-scheme: light;
+}
+
+/* Dark theme ------------------------------------------------------------ */
+:root[data-theme='dark'] {
+  --paper: #0e1512;
+  --paper-2: #131d19;
+  --paper-3: #1a2721;
+  --ink-100: #1e2b25;
+  --ink-200: #2a3a32;
+  --ink-300: #3a4d43;
+  --ink-400: #6a7d73;
+  --ink-500: #8a9c93;
+  --ink-600: #a9b9b1;
+  --ink-700: #c8d5ce;
+  --ink-800: #e0e9e4;
+  --ink-900: #f1f6f3;
+
+  --pine-50: #0c1a14;
+  --pine-100: #10241c;
+  --pine-200: #16382b;
+  --pine-300: #1f4c39;
+  --pine-400: #2b6b50;
+  --pine-500: #3b8a68;
+  --pine-600: #57a982;
+  --pine-700: #7cc4a2;
+  --pine-800: #a9dcc3;
+  --pine-900: #d3f0e2;
+
+  --clay-50: #221512;
+  --clay-100: #2f1c17;
+  --clay-200: #4a2a20;
+  --clay-300: #6d3c2c;
+  --clay-400: #a85b39;
+  --clay-500: #d1784c;
+  --clay-600: #e6956a;
+
+  --ok: #4fbb85;
+  --ok-bg: #10291d;
+  --warn: #e0a750;
+  --warn-bg: #2c2312;
+  --danger: #f2857c;
+  --danger-bg: #2e1614;
+  --info: #6fb3e8;
+  --info-bg: #10222f;
+
+  --sh-xs: 0 1px 2px rgb(0 0 0 / 0.4);
+  --sh-sm: 0 1px 3px rgb(0 0 0 / 0.5);
+  --sh-md: 0 4px 12px -2px rgb(0 0 0 / 0.55);
+  --sh-lg: 0 12px 28px -6px rgb(0 0 0 / 0.6);
+  --sh-xl: 0 28px 60px -14px rgb(0 0 0 / 0.7);
+
+  color-scheme: dark;
+}
+
+/* Focus ring colour per theme */
+:root {
+  --ring: color-mix(in srgb, var(--pine-400) 45%, transparent);
+}

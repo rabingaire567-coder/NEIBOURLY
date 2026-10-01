@@ -11,7 +11,8 @@ import { deflateRawSync, crc32 } from 'node:zlib';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const outFile = process.argv[2] ?? resolve(root, '..', 'NEIBOURLY.zip');
 
-const SKIP_DIRS = new Set(['node_modules', 'dist', '.git', '.github', 'coverage', '.vite', '.cache']);
+// `.github` is kept: the Pages workflow is part of how this project deploys.
+const SKIP_DIRS = new Set(['node_modules', 'dist', '.git', 'coverage', '.vite', '.cache']);
 const SKIP_FILES = new Set(['NEIBOURLY.zip', '.DS_Store', 'Thumbs.db', 'package-lock.json']);
 
 function walk(dir, acc = []) {
